@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Winston Responsive</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<!-- <link rel="stylesheet" href="css/theme/default.css" id="theme"> -->
+	<link rel="stylesheet" href="css/theme/winston.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="container logo-container">
+					<div class="logo">
+						<div class="bar1">&nbsp;</div>
+						<div class="bar2">&nbsp;</div>
+						<div class="bar3">&nbsp;</div>
+						<div class="bar4">&nbsp;</div>
+					</div>
+					<h1 class="logo-text">Winston</h1>
+				</div>
+			</section>
+			<section>
+				<h2>Tekniken bakom</h2>
+				<h1>Responsive web design</h1>
+				<aside class="notes">Gor morgon. Prata om RWD och tekniken.</aside>
+			</section>
+			<section>
+				<section>
+					<h2>Grids</h2>
+					<blockquote>
+						A fluid is a substance that continually deforms (flows) under an applied shear stress
+					</blockquote>
+				</section>
+				<section>
+					<p>Rutnät – 12, 16 eller 24 kolumner</p>
+					<aside class="notes">Används av design och gränssnitt.</aside>
+					<img src="img/grid.png" alt="">
+					<aside class="notes">Rutnät. 12, 16, 24. Förenklar layoutarbete. Placera ut block med innehåll.</aside>
+				</section>
+				<section>
+					<h3>Fluid vs adaptive grids</h3>
+					<div class="row-fluid block fs--small">
+						<div class="span6 fragment">
+							<p><strong>Adaptive grid:</strong></p>
+							<ul>
+								<li>Pixel baserade dimensioner.</li>
+								<li>Manuellt ändra höjder/bredder vid definierade breakpoints.</li>
+								<li>Vi vet alltid hur innehåller kommer att se ut.</li>
+								<li>Kräver mindre testning.</li>
+							</ul>	
+						</div>
+						<div class="span6 fragment">
+							<p><strong>Fluid grid:</strong></p>
+							<ul>
+								<li>Procent baserade dimensioner.</li>
+								<li>Innehåll flödar om och anpassar sig till storleken på sitt förälder-element.</li>
+								<li>Kontrollera när innehållet "går sönder". Anpassa där efter.</li>
+								<li>Framtidssäkert.</li>
+							</ul>	
+						</div>
+					</div>
+				</section>
+				<section>
+					<p>
+						<img src="img/manpower-1.jpg" alt="">
+					</p>
+				</section>
+				<section>
+					<p>
+						<img src="img/manpower-2.jpg" alt="">
+					</p>
+				</section>
+				<section>
+					<p>
+						<img src="img/manpower-3.jpg" alt="">
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+	<script>
+
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				// { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+				// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+</body>
+</html>
