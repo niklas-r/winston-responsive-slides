@@ -52,10 +52,6 @@
 			<section>
 				<section>
 					<h2>Grids</h2>
-					<blockquote>
-						A fluid is a substance that continually deforms (flows) under an applied shear stress
-					</blockquote>
-					<p class="author">Wikipedia</p>
 				</section>
 				<section>
 					<p>Rutnät – 12, 16 eller 24 kolumner</p>
@@ -69,7 +65,7 @@
 						<div class="span6 fragment">
 							<p><strong>Adaptive grid:</strong></p>
 							<ul>
-								<li>Pixel baserade dimensioner.</li>
+								<li>Pixelbaserade dimensioner.</li>
 								<li>Manuellt ändra höjder/bredder vid definierade breakpoints.</li>
 								<li>Vi vet alltid hur innehåller kommer att se ut.</li>
 								<li>Kräver mindre testning.</li>
@@ -80,7 +76,7 @@
 							<ul>
 								<li>Procent baserade dimensioner.</li>
 								<li>Innehåll flödar om och anpassar sig till storleken på sitt förälder-element.</li>
-								<li>Kontrollera när innehållet "går sönder". Anpassa där efter.</li>
+								<li>Kontrollera när designen "går sönder". Anpassa där efter.</li>
 								<li>Framtidssäkert.</li>
 							</ul>	
 						</div>
@@ -148,7 +144,7 @@
 						<li>device-width</li>
 						<li>device-height</li>
 						<li class="fragment grow">orientation</li>
-						<li>aspect-ratio</li>
+						<li class="fragment grow">aspect-ratio</li>
 						<li>device-aspect-ratio</li>
 						<li>color</li>
 						<li>color-index</li>
@@ -157,7 +153,7 @@
 						<li>scan</li>
 						<li>grid</li>
 					</ul>
-					<aside class="notes">Alla officiella media types enligt W3C specen. Det finns även variationer på vissa så som min/max-(device)width/height osv. Dom vanligaste är width, height men även, device-width-height och orientation.</aside>
+					<aside class="notes">Alla officiella media types enligt W3C specen. Det finns även variationer på vissa så som min/max-(device)width/height osv. Dom vanligaste är width, height men även, device-width-height och orientation. Aspect ratio börjar bli vanligare då man ganska lätt kan targeta iPhone 5 eftersom den har en apect ratio på 40:71 istället för det vanligt förekommande 16:9 formatet.</aside>
 				</section>
 				<section>
 <pre><code class="css">@media (min-width: 33em) {
@@ -165,6 +161,85 @@
 		background-color: papayaWhip;
 	}
 }</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Future proofing</h2>
+				</section>
+				<section>
+					Den ständiga utvecklingen av enheter gör att vi måste fokusera på att göra våra siter framtidssäkra.
+				</section>
+				<section>
+					<h3>Vector is the new black</h3>
+					SVG och Icon Fonts
+				</section>
+				<section>
+					<h3>Font Awesome och Entypo</h3>
+					<div class="row-fluid">
+						<span6>
+							<img src="img/font-awesome.png" alt="">
+						</span6>
+						<span6>
+							<img src="img/entypo.png" alt="">
+						</span6>
+					</div>
+				</section>
+				<section>
+					<h4>SVG</h4>
+					<ul>
+						<li>
+							SVG-bild är oftast ganska stora och webbläsaren behöver lite längre tid att rita upp dom.
+						</li>
+						<li>
+							Bra browser stöd: Chrome 4+, Safari 4+, FF4+, Opera 9.5+, IE9+, Mobila läsare
+						</li>
+						<li>
+							För äldre webbläsare (och Android 2.3) behövs PNG-fallbacks.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Icon Fonts</h4>
+					<ul>
+						<li>
+							Font Awesome och Entypo &lt;3
+						</li>
+						<li>
+							Mycket bra browser stöd: Allt utom Opera mini och Android 2.1
+						</li>
+						<li>
+							Skapa egna font-filer med Fontello. Spara bandbredd.
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Optimera</h2>
+					<h3>Speed is still a feature</h3>
+				</section>
+				<section>
+					<h3>Conditional loading</h3>
+					<p>Ladda endast de assets som behövs.</p>
+				</section>
+				<section>
+					CSS:
+<pre><code class="css">
+@media all and (min-width: 45em) {
+	body::after {
+		content: "desktop";
+		display: none;
+	}
+}
+</code></pre>
+				JS:
+<pre><code class="js">
+var size = window.getComputedStyle(document.body, "::after").getPropertyValue("content");
+if (size === "desktop") {
+	// Ladda in fler scripts etc.
+}
+</code></pre>
 				</section>
 			</section>
 		</div>
