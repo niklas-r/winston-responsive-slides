@@ -47,17 +47,17 @@
 			<section>
 				<h2>Tekniken bakom</h2>
 				<h1>Responsive web design</h1>
-				<aside class="notes">Gor morgon. Prata om RWD och tekniken.</aside>
+				<aside class="notes">God morgon. Jag ska prata lite om rekniken bakom RWD. Eftersom det ligger lite i tiden just nu och eftersom det redan fanns ett förarbete inför det responsiva frukostmötet så beslutade vi i teknikgruppen att en liten presentaion om RWD skulle hållas idag. Frukostmötet kommer troligtvis inte gå in lika mycket på djupet vad gäller tekniken. Så jag passar på med det nu.</aside>
 			</section>
 			<section>
 				<section>
-					<h2>Grids</h2>
+					<h2>Layout</h2>
 				</section>
 				<section>
+					<h3>Grid</h3>
 					<p>Rutnät – 12, 16 eller 24 kolumner</p>
-					<aside class="notes">Används av design och gränssnitt.</aside>
 					<img src="img/grid.png" alt="">
-					<aside class="notes">Rutnät. 12, 16, 24. Förenklar layoutarbete. Placera ut block med innehåll.</aside>
+					<aside class="notes">Används av design och gränssnitt. Förenklar framför allt layoutarbete. Placera ut block med innehåll. Oftast använder vi oss utav ett existerande grid som det i Twitter Bootstrap, det går att ändra på mycket bl.a. kolumn-antal och marginaler.</aside>
 				</section>
 				<section>
 					<h3>Fluid vs adaptive grids</h3>
@@ -81,24 +81,47 @@
 							</ul>	
 						</div>
 					</div>
+					<aside class="notes">Vad är då skillnaden mellan dessa två typer av grids? *Läs från listorna*</aside>
 				</section>
 				<section>
 					<p>
 						<img src="img/manpower-1.jpg" alt="">
 					</p>
+					<aside class="notes">På Manpower projektet använde vi oss utav Twitter Bootstraps grips.</aside>
 				</section>
 				<section>
 					<p>
 						<img src="img/manpower-2.jpg" alt="">
 					</p>
+					<aside class="notes">Vi ser här hur element linjerar med kolumnerna i gridet.</aside>
 				</section>
 				<section>
 					<p>
 						<img src="img/manpower-3.jpg" alt="">
 					</p>
+					<aside class="notes">Här ser vi hur blocken med innehåll ligger placerade. Allting linjerar inte perfekt eftersom blocken ligger i olika containers.</aside>
 				</section>
 				<section>
-					<a href="demo/grid">Grid demo</a>
+					<h3>Flexbox</h3>
+					<h4>Flexible box layout module</h4>
+					<p>Advancerad layout med CSS</p>
+					<aside class="notes">Flexbox är framtiden. Med flexbox kan vi bygga advancerade layouter mer likt det som vi kan se i riktiga applikationer. Fluid layout blir lättare. Element delar upp utrymme automatiskt, vi behöver inte sätta mått på saker och ting, det räcker med att säga "ni 5 element ska gemensamt ta upp hela bredden". Kolumner blir automatiskt samma höjd. Man kan styra om flödet av innehåller. Du behöver inte längre bry dig om source order, bestäm själv i vilket ordning dina element ska presenteras.</aside>
+				</section>
+				<section>
+					<h4>Flexbox historia</h4>
+					<p>3 versioner:</p>
+					<ul>
+						<li><code>display: box;</code></li>
+						<li><code>display: flexbox;</code></li>
+						<li><code>display: flex;</code></li>
+					</ul>
+					<aside class="notes">
+						Flexbox har en jobbig historia. display: box; var det första versionen av flexbox och implementerades i både firefox och chrome. Sedan kom mellan versionen som snabbt skrevs om till den slutgiltiga display: flex; som nu har implementeras i Chrome 21+, Opera 12.1+ (och Opera Mobile) och senaste versionen av FF (21). IE9 får ingen kärlek och IE10 har tyvär fått den konstiga mellanversionen av flexbox.
+					</aside>
+				</section>
+				<section>
+					<p><a href="demo/grid" target="_blank">Grid demo</a></p>
+					<p><a href="demo/flexbox" target="_blank">Flexbox demo</a></p>
 				</section>
 				<section>
 					<img class="img-plain" src="img/chrome_firefox_opera_safari_ie-512.png" alt="">
@@ -133,7 +156,7 @@
 						<li>tv</li>
 					</ul>
 					<aside class="notes">
-						Handheld är oftast mindre och äldre mobila enheter som t.ex Nokia 3310.
+						Dessa är media typerna som vi kan testa. Dock så används nästan uteslutet 3 av dessa. Handheld är oftast mindre och äldre mobila enheter som t.ex Nokia 3310.
 					</aside>
 				</section>
 				<section>
@@ -157,9 +180,9 @@
 				</section>
 				<section>
 <pre><code class="css">@media (min-width: 33em) {
-	body {
-		background-color: papayaWhip;
-	}
+  body {
+    background-color: papayaWhip;
+  }
 }</code></pre>
 				</section>
 			</section>
@@ -168,28 +191,17 @@
 					<h2>Future proofing</h2>
 				</section>
 				<section>
-					Den ständiga utvecklingen av enheter gör att vi måste fokusera på att göra våra siter framtidssäkra.
+					Den ständiga utvecklingen av tekniken gör att vi måste fokusera på att göra våra siter framtidssäkra.
 				</section>
 				<section>
 					<h3>Vector is the new black</h3>
 					SVG och Icon Fonts
 				</section>
 				<section>
-					<h3>Font Awesome och Entypo</h3>
-					<div class="row-fluid">
-						<span6>
-							<img src="img/font-awesome.png" alt="">
-						</span6>
-						<span6>
-							<img src="img/entypo.png" alt="">
-						</span6>
-					</div>
-				</section>
-				<section>
-					<h4>SVG</h4>
+					<h3>SVG</h3>
 					<ul>
 						<li>
-							SVG-bild är oftast ganska stora och webbläsaren behöver lite längre tid att rita upp dom.
+							SVG-bilder är oftast ganska stora och webbläsaren behöver lite längre tid att rita upp dom.
 						</li>
 						<li>
 							Bra browser stöd: Chrome 4+, Safari 4+, FF4+, Opera 9.5+, IE9+, Mobila läsare
@@ -198,9 +210,10 @@
 							För äldre webbläsare (och Android 2.3) behövs PNG-fallbacks.
 						</li>
 					</ul>
+					<aside class="notes">SVG är bra för viktig grafik så som loggor.</aside>
 				</section>
 				<section>
-					<h4>Icon Fonts</h4>
+					<h3>Icon Fonts</h3>
 					<ul>
 						<li>
 							Font Awesome och Entypo &lt;3
@@ -212,6 +225,17 @@
 							Skapa egna font-filer med Fontello. Spara bandbredd.
 						</li>
 					</ul>
+					<div class="row-fluid block">
+						<div class="span6">
+							<strong>Font Awesome</strong>
+							<img src="img/font-awesome.png" alt="">
+						</div>
+						<div class="span6">
+							<strong>Entypo</strong>
+							<img src="img/entypo.png" alt="">
+						</div>
+					</div>
+					<aside class="notes">Använd så ofta som möjligt. Ser bra ut i alla webbläsare (dock så renderar windows ofta fonter väldigt dåligt). Med fontello kan vi skapa små font-bibliotek.</aside>
 				</section>
 			</section>
 			<section>
@@ -222,6 +246,7 @@
 					<h3>Mobile first stylesheets</h3>
 					<p>Skriv "bas-styles" som ska laddas in i alla webbläsare (och enheter) utanför media queries.</p>
 					<p>Tänk progressive enhancement och bygg på med nya styles i media queries med min-width.</p>
+					<aside class="notes">Så här gillar jag att tänka när jag ska strukturera min projekt.</aside>
 				</section>
 				<section>
 <pre><code class="css">h1 {
@@ -239,6 +264,7 @@
 					<p>Dela upp dina styles i flera stylesheets baserat på breakpoints.</p>
 					<p>Mobile first style: <span class="highlight">0-up.css</span>, <span class="highlight">450-up.css</span>, <span class="highlight">720-up.css</span></p>
 					<p>Also okay style: <span class="highlight">base.css</span>, <span class="highlight">0-449.css</span>, <span class="highlight">450-719.css</span></p>
+					<aside class="notes">Se till att minifiera innan lansering för att slippa extra http-requests. Om en css-processor används är detta inte ett problem.</aside>
 				</section>
 			</section>
 			<section>
@@ -251,6 +277,7 @@
 					<p>Ladda endast de assets som behövs.</p>
 				</section>
 				<section>
+					<p>Ett exempel med CSS och JS.</p>
 					CSS:
 <pre><code class="css">
 @media all and (min-width: 45em) {
@@ -260,13 +287,14 @@
 	}
 }
 </code></pre>
-				JS:
+					JS:
 <pre><code class="js">
 var size = window.getComputedStyle(document.body, "::after").getPropertyValue("content");
 if (size === "desktop") {
 	// Ladda in fler scripts etc.
 }
 </code></pre>
+					<aside class="notes">Sparar trafik. Kan använda sig av yepnope.js för att göra tester och ladda scripts därefter.</aside>
 				</section>
 				<section>
 					<h3>Lazy loading</h3>
@@ -293,6 +321,7 @@ if (size === "desktop") {
 &lt;/script&gt;
 
 &lt;button onclick="lazyLoad()"&gt;Lazy Load&lt;/button&gt;</code></pre>
+					<aside class="notes">Jag är inte så förtjust i denna lösning. Jag gillar inte eval då den öppnar upp för exploits. Är man säker på sin sak går det bra.</aside>
 				</section>
 				<section>
 					<h3>2 stegs sociala widgets</h3>
@@ -313,15 +342,12 @@ if (size === "desktop") {
 				<section>
 					<h3>CSS-content</h3>
 					HTML:
-<pre><code class="html">
-&lt;img src="image.jpg"
+<pre><code class="html">&lt;img src="image.jpg"
 data-src-600px="image-600px.jpg"
 data-src-800px="image-800px.jpg"
-alt=""&gt;
-</code></pre>
+alt=""&gt;</code></pre>
 				CSS:
-<pre><code class="css">
-@media (min-device-width:600px) {
+<pre><code class="css">@media (min-device-width:600px) {
     img[data-src-600px] {
         content: attr(data-src-600px, url);
     }
@@ -331,13 +357,14 @@ alt=""&gt;
     img[data-src-800px] {
         content: attr(data-src-800px, url);
     }
-}
-</code></pre>
+} </code></pre>
+					<aside class="notes">Positivt, inget JavaScript. Negativt, hindrar inte webbläsaren från att ladda ned minst 2 olika versionerna utav bilden.</aside>
 				</section>
 				<section>
 					<h3>RESS</h3>
 					<p><strong>Re</strong>sponsive <strong>S</strong>erver <strong>S</strong>ide</p>
 					<p>Servern levererar rätt bild genom device sniffing.</p>
+					<aside class="notes">För php finns WURFL tillhands för att hjälpa till med device sniffing. Finns säkert liknande till .NET. Device sniffing är lite så där eftersom vi inte ska fokusera för mycket på enheter när vi bygger responsive, men ibland är det oundvikligt.</aside>
 				</section>
 				<section>
 					<h3>JS lösningar</h3>
@@ -346,19 +373,22 @@ alt=""&gt;
 						<li><a href="https://github.com/stowball/jQuery-rwdImages">rwdImages</a> (jQuery)</li>
 						<li><a href="https://github.com/joshje/Responsive-Enhance">Responsive Enhancement</a></li>
 					</ul>
+					<aside class="notes">Jag har testat HiSRC och det fungerar bra. Problemet kvarstår dock hur bilderna ska genereras. Av back end eller av redaktörer? Beslut tas baserat på kraven.</aside>
 				</section>
 				<section>
 					<h3>Framtiden</h3>
 					<h4>&lt;picture&gt;</h4>
-<pre><code class="html">
-&lt;picture alt="Description of image subject."&gt;
+<pre><code class="html">&lt;picture alt="Description of image subject."&gt;
 	&lt;source srcset="small.jpg 1x, small-highres.jpg 2x"&gt;
 	&lt;source media="(min-width: 18em)" srcset="med.jpg 1x, med-highres.jpg 2x"&gt;
 	&lt;source media="(min-width: 45em)" srcset="large.jpg 1x, large-highres.jpg 2x"&gt;
 	&lt;img src="small.jpg" alt="Description of image subject."&gt;
-&lt;/picture&gt;
-</code></pre>
+&lt;/picture&gt;</code></pre>
+					<aside class="notes">Detta är vad W3C gruppen arbetar med. Här ser vi stöd för flera mått och upplösningar på bilder. Jag tror detta kommer bli något bra till slut.</aside>
 				</section>
+			</section>
+			<section>
+				<h2>Fin</h2>
 			</section>
 		</div>
 	</div>
