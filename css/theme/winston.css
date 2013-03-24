@@ -143,6 +143,18 @@ body {
 .reveal .fs--small {
   font-size: .8em;
 }
+.reveal .img-plain {
+  border: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.reveal .author {
+  font-style: italic;
+}
+.author::before {
+  content: "\02013\0020";
+}
 /*********************************************
  * LOGO
  *********************************************/
