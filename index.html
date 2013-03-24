@@ -110,7 +110,60 @@
 					<aside class="notes">Grids är inte ett hinder. Se det som ett hjälpmedel. Var inte rädd för att experimentera som designers.</aside>
 				</section>
 			</section>
-			
+			<section>
+				<section>
+					<h2>CSS Media Queries</h2>				
+				</section>
+				<section>
+					<q>Ja och nej frågor till browsern.</q>
+					<aside class="notes">Den skäggiga gubben på Sublime beskrev mq's som detta.</aside>
+				</section>
+				<section>
+					<h3>Media types</h3>
+					<ul>
+						<li class="fragment grow">all</li>
+						<li>aural</li>
+						<li>braille</li>
+						<li>embossed</li>
+						<li>handheld</li>
+						<li class="fragment grow">print</li>
+						<li>projection</li>
+						<li class="fragment grow">screen</li>
+						<li>speech</li>
+						<li>tty</li>
+						<li>tv</li>
+					</ul>
+					<aside class="notes">
+						Handheld är oftast mindre och äldre mobila enheter som t.ex Nokia 3310.
+					</aside>
+				</section>
+				<section>
+					<h3>Media features</h3>
+					<ul>
+						<li class="fragment grow">width</li>
+						<li class="fragment grow">height</li>
+						<li>device-width</li>
+						<li>device-height</li>
+						<li class="fragment grow">orientation</li>
+						<li>aspect-ratio</li>
+						<li>device-aspect-ratio</li>
+						<li>color</li>
+						<li>color-index</li>
+						<li>monochrome</li>
+						<li>resolution</li>
+						<li>scan</li>
+						<li>grid</li>
+					</ul>
+					<aside class="notes">Alla officiella media types enligt W3C specen. Det finns även variationer på vissa så som min/max-(device)width/height osv. Dom vanligaste är width, height men även, device-width-height och orientation.</aside>
+				</section>
+				<section>
+<pre><code class="css">@media (min-width: 33em) {
+	body {
+		background-color: papayaWhip;
+	}
+}</code></pre>
+				</section>
+			</section>
 		</div>
 	</div>
 
