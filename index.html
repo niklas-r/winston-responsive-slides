@@ -52,10 +52,6 @@
 			<section>
 				<section>
 					<h2>Grids</h2>
-					<blockquote>
-						A fluid is a substance that continually deforms (flows) under an applied shear stress
-					</blockquote>
-					<p class="author">Wikipedia</p>
 				</section>
 				<section>
 					<p>Rutnät – 12, 16 eller 24 kolumner</p>
@@ -69,7 +65,7 @@
 						<div class="span6 fragment">
 							<p><strong>Adaptive grid:</strong></p>
 							<ul>
-								<li>Pixel baserade dimensioner.</li>
+								<li>Pixelbaserade dimensioner.</li>
 								<li>Manuellt ändra höjder/bredder vid definierade breakpoints.</li>
 								<li>Vi vet alltid hur innehåller kommer att se ut.</li>
 								<li>Kräver mindre testning.</li>
@@ -80,7 +76,7 @@
 							<ul>
 								<li>Procent baserade dimensioner.</li>
 								<li>Innehåll flödar om och anpassar sig till storleken på sitt förälder-element.</li>
-								<li>Kontrollera när innehållet "går sönder". Anpassa där efter.</li>
+								<li>Kontrollera när designen "går sönder". Anpassa där efter.</li>
 								<li>Framtidssäkert.</li>
 							</ul>	
 						</div>
@@ -102,6 +98,9 @@
 					</p>
 				</section>
 				<section>
+					<a href="demo/grid">Grid demo</a>
+				</section>
+				<section>
 					<img class="img-plain" src="img/chrome_firefox_opera_safari_ie-512.png" alt="">
 					<blockquote>
 						We are blinded by browsers. When it comes to RWD, we think about layouts, and often we should, but we have to keep in mind that we are not rectangle artists. We explore solutions to problems. Browsers think in boxes, but humans shouldn't.
@@ -110,7 +109,257 @@
 					<aside class="notes">Grids är inte ett hinder. Se det som ett hjälpmedel. Var inte rädd för att experimentera som designers.</aside>
 				</section>
 			</section>
-			
+			<section>
+				<section>
+					<h2>CSS Media Queries</h2>				
+				</section>
+				<section>
+					<q>Ja och nej frågor till browsern.</q>
+					<aside class="notes">Den skäggiga gubben på Sublime beskrev mq's som detta.</aside>
+				</section>
+				<section>
+					<h3>Media types</h3>
+					<ul>
+						<li class="fragment grow">all</li>
+						<li>aural</li>
+						<li>braille</li>
+						<li>embossed</li>
+						<li>handheld</li>
+						<li class="fragment grow">print</li>
+						<li>projection</li>
+						<li class="fragment grow">screen</li>
+						<li>speech</li>
+						<li>tty</li>
+						<li>tv</li>
+					</ul>
+					<aside class="notes">
+						Handheld är oftast mindre och äldre mobila enheter som t.ex Nokia 3310.
+					</aside>
+				</section>
+				<section>
+					<h3>Media features</h3>
+					<ul>
+						<li class="fragment grow">width</li>
+						<li class="fragment grow">height</li>
+						<li>device-width</li>
+						<li>device-height</li>
+						<li class="fragment grow">orientation</li>
+						<li class="fragment grow">aspect-ratio</li>
+						<li>device-aspect-ratio</li>
+						<li>color</li>
+						<li>color-index</li>
+						<li>monochrome</li>
+						<li>resolution</li>
+						<li>scan</li>
+						<li>grid</li>
+					</ul>
+					<aside class="notes">Alla officiella media types enligt W3C specen. Det finns även variationer på vissa så som min/max-(device)width/height osv. Dom vanligaste är width, height men även, device-width-height och orientation. Aspect ratio börjar bli vanligare då man ganska lätt kan targeta iPhone 5 eftersom den har en apect ratio på 40:71 istället för det vanligt förekommande 16:9 formatet.</aside>
+				</section>
+				<section>
+<pre><code class="css">@media (min-width: 33em) {
+	body {
+		background-color: papayaWhip;
+	}
+}</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Future proofing</h2>
+				</section>
+				<section>
+					Den ständiga utvecklingen av enheter gör att vi måste fokusera på att göra våra siter framtidssäkra.
+				</section>
+				<section>
+					<h3>Vector is the new black</h3>
+					SVG och Icon Fonts
+				</section>
+				<section>
+					<h3>Font Awesome och Entypo</h3>
+					<div class="row-fluid">
+						<span6>
+							<img src="img/font-awesome.png" alt="">
+						</span6>
+						<span6>
+							<img src="img/entypo.png" alt="">
+						</span6>
+					</div>
+				</section>
+				<section>
+					<h4>SVG</h4>
+					<ul>
+						<li>
+							SVG-bild är oftast ganska stora och webbläsaren behöver lite längre tid att rita upp dom.
+						</li>
+						<li>
+							Bra browser stöd: Chrome 4+, Safari 4+, FF4+, Opera 9.5+, IE9+, Mobila läsare
+						</li>
+						<li>
+							För äldre webbläsare (och Android 2.3) behövs PNG-fallbacks.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Icon Fonts</h4>
+					<ul>
+						<li>
+							Font Awesome och Entypo &lt;3
+						</li>
+						<li>
+							Mycket bra browser stöd: Allt utom Opera mini och Android 2.1
+						</li>
+						<li>
+							Skapa egna font-filer med Fontello. Spara bandbredd.
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Struktur</h2>
+				</section>
+				<section>
+					<h3>Mobile first stylesheets</h3>
+					<p>Skriv "bas-styles" som ska laddas in i alla webbläsare (och enheter) utanför media queries.</p>
+					<p>Tänk progressive enhancement och bygg på med nya styles i media queries med min-width.</p>
+				</section>
+				<section>
+<pre><code class="css">h1 {
+	font-size: 2.5em;
+}
+
+@media (min-width: 45em) {
+	h1 {
+		letter-spacing: 2;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+	}
+}</code></pre>
+				</section>
+				<section>
+					<p>Dela upp dina styles i flera stylesheets baserat på breakpoints.</p>
+					<p>Mobile first style: <span class="highlight">0-up.css</span>, <span class="highlight">450-up.css</span>, <span class="highlight">720-up.css</span></p>
+					<p>Also okay style: <span class="highlight">base.css</span>, <span class="highlight">0-449.css</span>, <span class="highlight">450-719.css</span></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Optimera</h2>
+					<h3>Speed is still a feature</h3>
+				</section>
+				<section>
+					<h3>Conditional loading</h3>
+					<p>Ladda endast de assets som behövs.</p>
+				</section>
+				<section>
+					CSS:
+<pre><code class="css">
+@media all and (min-width: 45em) {
+	body::after {
+		content: "desktop";
+		display: none;
+	}
+}
+</code></pre>
+				JS:
+<pre><code class="js">
+var size = window.getComputedStyle(document.body, "::after").getPropertyValue("content");
+if (size === "desktop") {
+	// Ladda in fler scripts etc.
+}
+</code></pre>
+				</section>
+				<section>
+					<h3>Lazy loading</h3>
+				</section>
+				<section>
+					<p>Låt browsern ladda ned all JS, men kör det bara när det behövs.</p>
+					<p>Stora delar av JS-filen är utkommenterad, när vi behöver koden så tar vi bort kommentarerna.</p>
+				</section>
+				<section>
+					<h3>Gmails Lazy Loading</h3>
+<pre><code class="html">&lt;script id="lazy"&gt;
+	// KOD.
+	// KOD..
+	// KOD...
+&lt;/script&gt;
+
+&lt;script&gt;
+	function lazyLoad() {
+		var lazyElement = document.getElementById("lazy");
+		var lazyElementBody = lazyElement.innerHTML;
+		var jsCode = stripOutCommentBlock(lazyElementBody);
+		eval(jsCode);
+	}
+&lt;/script&gt;
+
+&lt;button onclick="lazyLoad()"&gt;Lazy Load&lt;/button&gt;</code></pre>
+				</section>
+				<section>
+					<h3>2 stegs sociala widgets</h3>
+				</section>
+				<section>
+					<p>Ladda endast in widgets när användaren vill interagera med dom.</p>
+					<p>Använd ikoner som placeholders till att börja med.</p>
+					<p>Sparar bandbredd, Facebooks like knapp väger 120kB och 4 HTTP-requests</p>
+				</section>
+				<section>
+					<h3>Bilder</h3>
+				</section>
+				<section>
+					<p>Det finns ofta en stor datakaka att spara när det kommer till bildoptimering.</p>
+					<p>W3C har skapat en hel grupp för att adressera detta problem.</p>
+					<p>Det finns en del lösningar ute som fungerar bra, upp till projektet vilken man väljer.</p>
+				</section>
+				<section>
+					<h3>CSS-content</h3>
+					HTML:
+<pre><code class="html">
+&lt;img src="image.jpg"
+data-src-600px="image-600px.jpg"
+data-src-800px="image-800px.jpg"
+alt=""&gt;
+</code></pre>
+				CSS:
+<pre><code class="css">
+@media (min-device-width:600px) {
+    img[data-src-600px] {
+        content: attr(data-src-600px, url);
+    }
+}
+
+@media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+}
+</code></pre>
+				</section>
+				<section>
+					<h3>RESS</h3>
+					<p><strong>Re</strong>sponsive <strong>S</strong>erver <strong>S</strong>ide</p>
+					<p>Servern levererar rätt bild genom device sniffing.</p>
+				</section>
+				<section>
+					<h3>JS lösningar</h3>
+					<ul>
+						<li><a href="https://github.com/teleject/hisrc">HiSRC</a> (jQuery)</li>
+						<li><a href="https://github.com/stowball/jQuery-rwdImages">rwdImages</a> (jQuery)</li>
+						<li><a href="https://github.com/joshje/Responsive-Enhance">Responsive Enhancement</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Framtiden</h3>
+					<h4>&lt;picture&gt;</h4>
+<pre><code class="html">
+&lt;picture alt="Description of image subject."&gt;
+	&lt;source srcset="small.jpg 1x, small-highres.jpg 2x"&gt;
+	&lt;source media="(min-width: 18em)" srcset="med.jpg 1x, med-highres.jpg 2x"&gt;
+	&lt;source media="(min-width: 45em)" srcset="large.jpg 1x, large-highres.jpg 2x"&gt;
+	&lt;img src="small.jpg" alt="Description of image subject."&gt;
+&lt;/picture&gt;
+</code></pre>
+				</section>
+			</section>
 		</div>
 	</div>
 
