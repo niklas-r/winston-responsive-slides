@@ -176,24 +176,40 @@ body {
   height: 264px;
 }
 .logo .bar1 {
+  opacity: 0;
   left: 44px;
   z-index: 10;
   background: #8ed8f8;
+  -webkit-animation: 
+    logoFadeIn .35s ease-out forwards,
+    logoBarOne .35s ease-out forwards;
 }
 .logo .bar2 {
+  opacity: 0;
   left: 108px;
   z-index: 20;
   background: #40c8f4;
+  -webkit-animation: 
+    logoFadeIn .35s .25s ease-out forwards,
+    logoBarTwo .35s .25s ease-out forwards;
 }
 .logo .bar3 {
+  opacity: 0;
   left: 172px;
   z-index: 30;
   background: #2abaf2;
+  -webkit-animation: 
+    logoFadeIn .35s .30s ease-out forwards,
+    logoBarThree .35s .30s ease-out forwards;
 }
 .logo .bar4 {
+  opacity: 0;
   left: 236px;
   z-index: 40;
   background: #26adf0;
+  -webkit-animation: 
+    logoFadeIn .35s .45s ease-out forwards,
+    logoBarFour .35s .45s ease-out forwards;
 }
 .logo .bar1,
 .logo .bar3 {
@@ -208,6 +224,7 @@ body {
   transform: matrix(1.22, 0, -0.24, 1,  0, 0);
 }
 h1.logo-text {
+  opacity: 0;
   text-transform: lowercase;
   font-size: 3em;
   font-weight: 700;
@@ -215,4 +232,58 @@ h1.logo-text {
   margin: 10px 0;
   text-shadow: none;
   text-align: center;
+  position: relative;
+  -webkit-animation: 
+    logoTextFadeIn .6s .75s ease-out forwards;
+}
+
+@-webkit-keyframes logoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes logoBarOne {
+  from {
+    left: 4px;
+  }
+  to {
+    left: 44px;
+  }
+}
+@-webkit-keyframes logoBarTwo {
+  from {
+    left: 68px;
+  }
+  to {
+    left: 108px;
+  }
+}
+@-webkit-keyframes logoBarThree {
+  from {
+    left: 132px;
+  }
+  to {
+    left: 172px;
+  }
+}
+@-webkit-keyframes logoBarFour {
+  from {
+    left: 196px;
+  }
+  to {
+    left: 236px;
+  }
+}
+@-webkit-keyframes logoTextFadeIn {
+  from {
+    bottom: -40px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
 }
